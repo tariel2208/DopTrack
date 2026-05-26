@@ -1,0 +1,423 @@
+
+:root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --surface2: #273449;
+    --border: #334155;
+
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+
+    --accent: #8b5cf6;
+    --accent2: #6366f1;
+
+    --green: #34d399;
+    --red: #ef4444;
+    --yellow: #fbbf24;
+
+    --radius: 16px;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#0f172a;
+    color: white;
+}
+
+
+.logo{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #8b5cf6;
+}
+
+
+.sidebar{
+    width: 260px;
+    height: 100vh;
+    background: #542861;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    border-right:  1px solid #1f2937;
+    background-color: rgb(30, 11, 66);
+}
+
+
+.middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+ 
+.todays_habits, .dopamine-logs {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+
+}
+ 
+/* ── Section header (shared) ── */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.section-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+ 
+/* ── Add / action buttons ── */
+.btn-add {
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.btn-add:hover { background: var(--accent); border-color: var(--accent); }
+ 
+/* ── Habit list ── */
+.habit-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+ 
+.habit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    transition: opacity 0.2s;
+}
+.habit-item.done { opacity: 0.6; }
+ 
+.habit-check { display: flex; align-items: center; cursor: pointer; }
+.habit-check input { display: none; }
+.checkmark {
+    width: 18px; height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    flex-shrink: 0;
+}
+.habit-check input:checked + .checkmark {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+.habit-check input:checked + .checkmark::after {
+    content: '✓';
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+}
+ 
+.habit-name { flex: 1; font-size: 14px; color: var(--text); }
+ 
+.badge {
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+.badge-done    { background: rgba(52,211,153,0.15); color: var(--green); }
+.badge-pending { background: rgba(139,138,160,0.15); color: var(--muted); }
+ 
+/* ── Add habit form ── */
+.add-habit-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.add-habit-form.hidden { display: none; }
+ 
+.add-habit-form input {
+    flex: 1;
+    min-width: 120px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+}
+.add-habit-form input:focus { border-color: var(--accent); }
+ 
+.btn-save {
+    padding: 8px 14px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 0.15s;
+}
+.btn-save:hover { opacity: 0.85; }
+ 
+.btn-cancel {
+    padding: 8px 14px;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+.btn-cancel:hover { color: var(--text); }
+ 
+/* ── Log list ── */
+.log-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+ 
+.log-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+ 
+.log-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.dot-good    { background: var(--green); }
+.dot-bad     { background: var(--red); }
+.dot-neutral { background: var(--yellow); }
+ 
+.log-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.log-name { font-size: 14px; color: var(--text); }
+.log-time { font-size: 11px; color: var(--muted); }
+ 
+.log-pts { font-size: 14px; font-weight: 700; }
+.positive { color: var(--green); }
+.negative  { color: var(--red); }
+ 
+/* ── BOTTOM ── */
+.bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+}
+ 
+.weekly-chart, .quick-log-mood, .daily-tips {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+ 
+/* ── Period buttons ── */
+.period-btns { display: flex; gap: 6px; }
+ 
+.period-btn {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.period-btn:hover { color: var(--text); }
+.period-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+ 
+/* ── Bar chart ── */
+.chart-area {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 140px;
+    margin-top: 16px;
+}
+ 
+.bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+}
+ 
+.bar {
+    width: 100%;
+    height: var(--h);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+.bar:hover    { background: var(--accent2); }
+.bar.highlight { background: var(--accent); }
+ 
+.bar-label { font-size: 11px; color: var(--muted); }
+ 
+/* ── Mood ── */
+.mood-label {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+ 
+.mood-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+ 
+.mood-btn {
+    font-size: 22px;
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    width: 44px; height: 44px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.1s;
+    display: flex; align-items: center; justify-content: center;
+}
+.mood-btn:hover  { border-color: var(--accent); transform: scale(1.1); }
+.mood-btn.active { border-color: var(--accent); background: rgba(124,106,255,0.15); }
+ 
+.mood-status {
+    font-size: 12px;
+    color: var(--accent2);
+    margin-top: 10px;
+    min-height: 18px;
+}
+ 
+/* ── Daily tip ── */
+.tip-text {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+ 
+.btn-next-tip {
+    font-size: 13px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.btn-next-tip:hover { background: var(--surface2); }
+
+
+
+
+
+.nav-item{
+    padding: 12px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #5986bc;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+
+.nav-item{
+    transition: all 0.25s ease;
+}
+
+
+.nav-item:hover{
+    background: #981c90;
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-item.active{
+    background: linear-gradient(90deg,#8b5cf6, #6366f1);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(139,92,246,0.2);
+}
+
+body {
+    margin: 0;
+    background: #0f172a;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+
+
+
+
+.main {
+    flex: 1;
+    padding: 20px;
+    gap: 16px;
+}
+
+
+
+
+.top {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+.stats-card {
+    flex: 1;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 16px;
+    transition: 0.2s ease;
+}
+
+
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    background: #273449;
+}
+
+
+
+.stats-title {
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+
+.stats-value {
+    font-size: 28px;
+    font-weight: bold;
+}
