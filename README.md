@@ -1,7 +1,8 @@
-# DopTrack
 
-A modern and responsive productivity & dopamine tracking dashboard built using pure frontend technologies.  
-The project focuses on clean UI design, dashboard layouts, and interactive user experience.
+# DopTrack Dashboard
+
+A modern and responsive productivity & dopamine tracking dashboard built with frontend technologies.  
+This project was developed as part of my frontend learning journey to improve my skills in UI design, responsive layouts, and JavaScript interactivity.
 
 ---
 
@@ -13,12 +14,12 @@ The project focuses on clean UI design, dashboard layouts, and interactive user 
 
 ## Features
 
-- Modern dashboard UI
-- Responsive layout
+- Modern dashboard interface
+- Responsive design
 - Sidebar navigation
+- Interactive UI components
 - Statistics cards
-- Interactive components
-- Clean and minimal design
+- Clean and minimal layout
 - Smooth user experience
 
 ---
@@ -44,6 +45,21 @@ DopTrack/
 
 ---
 
+## Purpose of the Project
+
+The main goal of this project is to strengthen my frontend development skills by practicing:
+
+- Responsive web design
+- Modern UI layouts
+- CSS styling techniques
+- JavaScript DOM manipulation
+- Dashboard development concepts
+- Creating clean and user-friendly interfaces
+
+This project is part of my continuous learning process in frontend development.
+
+---
+
 ## Getting Started
 
 Clone the repository:
@@ -62,26 +78,14 @@ Run the project by opening `index.html` in your browser.
 
 ---
 
-## Goals of the Project
-
-This project was created to practice:
-
-- Frontend development
-- UI/UX design principles
-- Dashboard layouts
-- Responsive web design
-- JavaScript DOM manipulation
-
----
-
 ## Future Improvements
 
 - Dark/Light mode
-- Local storage support
-- Authentication system
 - Backend integration
-- Data visualization charts
-- Mobile app version
+- User authentication
+- Data persistence
+- Advanced charts and analytics
+- Mobile optimization
 
 ---
 
